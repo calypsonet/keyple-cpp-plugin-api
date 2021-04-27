@@ -13,61 +13,36 @@
 
 #pragma once
 
-#include <list>
-#include <memory>
-#include <string>
-
-/* Plugin */
-#include "PluginSpi.h"
+#include "Exception.h"
 
 namespace keyple {
 namespace core {
 namespace plugin {
-namespace spi {
 
-using namespace keyple::core::plugin::spi::reader;
+using namespace keyple::core::util::cpp::exception;
 
 /**
- * Plugin (non pool) able to manage a dynamic list of readers and provide the content on request
- * (for example PC/SC).
- *
- * <p>The production of plugin events (connection/disconnection of readers) is handled by the Keyple
- * Core adapter.
+ * Indicates that an error occurred while managing the readers.
  *
  * @since 2.0
  */
-class ObservablePluginSpi : public PluginSpi {
+class PluginIOException : public Exception {
 public:
     /**
-     * Gets the recommended time cycle in milliseconds to check the list of current readers.
-     *
-     * @return A positive int
+     * @param message the message to identify the exception context
      * @since 2.0
      */
-    virtual int getMonitoringCycleDuration() = 0;
+    PluginIOException(const std::string& message) : Exception(message) {}
 
     /**
-     * Enumerates currently available readers and returns their names as a collection of String.
-     *
-     * @return An empty list if no reader is available
-     * @throws PluginIOException If an error occurs while searching readers.
+     * @param message the message to identify the exception context
+     * @param cause the cause
      * @since 2.0
      */
-    virtual const std::vector<const std::string> searchAvailableReadersNames() = 0;
-
-    /**
-     * Searches for the reader whose name is provided and returns its {@link ReaderSpi} if found,
-     * null if not.
-     *
-     * @param readerName The name of reader
-     * @return null if the reader is not found
-     * @throws PluginIOException If an error occurs while searching the reader.
-     * @since 2.0
-     */
-    virtual std::shared_ptr<ReaderSpi> searchReader(const std::string& readerName) = 0;
+    PluginIOException(const std::string& message, const std::exception cause)
+    : Exception(message, cause) {}
 };
 
-}
 }
 }
 }
