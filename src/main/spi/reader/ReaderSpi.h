@@ -51,7 +51,7 @@ public:
      * @return true if the protocol is supported, false if not.
      * @since 2.0
      */
-    virtual bool isProtocolSupported(const std::string& readerProtocol) = 0;
+    virtual bool isProtocolSupported(const std::string& readerProtocol) const = 0;
 
     /**
      * Activates a specific protocol in order to make the reader able to communicate with the cards
@@ -77,7 +77,7 @@ public:
      * @return true if the current protocol corresponds to the one provided, false if not.
      * @since 2.0
      */
-    virtual bool isCurrentProtocol(const std::string& readerProtocol) = 0;
+    virtual bool isCurrentProtocol(const std::string& readerProtocol) const = 0;
 
     /**
      * Attempts to open the physical channel (to established a communication with the card).
@@ -103,7 +103,7 @@ public:
      *
      * @return true is the physical channel is open, false if not.
      */
-    virtual bool isPhysicalChannelOpen() = 0;
+    virtual bool isPhysicalChannelOpen() const = 0;
 
     /**
      * Verifies the presence of a card.
@@ -128,7 +128,7 @@ public:
      * @return A not empty array
      * @since 2.0
      */
-    virtual const std::vector<uint8_t>& getAtr() = 0;
+    virtual const std::vector<uint8_t>& getAtr() const = 0;
 
     /**
      * Transmits an APDU and returns its response.
@@ -146,6 +146,9 @@ public:
 
     /**
      * Tells if the reader is a contactless type.
+     *
+     * C++ note: this function cannot be set 'const' as some derived classes will set internal
+     *           flags accordingly.
      *
      * @return true if the reader a contactless type, false if not
      * @since 2.0
