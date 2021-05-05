@@ -13,42 +13,26 @@
 
 #pragma once
 
-#include <list>
-#include <memory>
-#include <string>
-
-/* Plugin */
-#include "AutonomousObservablePluginApi.h"
-#include "PluginSpi.h"
-
 namespace keyple {
 namespace core {
 namespace plugin {
-namespace spi {
-
-using namespace keyple::core::plugin;
 
 /**
- * Plugin (non pool) having autonomous capabilities to observe reader connections and
- * disconnections.
- *
- * <p>Plugin events are produced by the plugin itself.
+ * API associated to a
+ * keyple::core::plugin::spi::reader::observable::state::removal::WaitForCardRemovalAutonomousSpi
  *
  * @since 2.0
  */
-class AutonomousObservablePluginSpi : public PluginSpi {
+class WaitForCardRemovalAutonomousReaderApi {
 public:
     /**
-     * Connects the associated Keyple Core {@link AutonomousObservablePluginApi} API.
+     * Must be invoked when a card is removed.
      *
-     * @param autonomousObservablePluginApi The API to connect.
      * @since 2.0
      */
-    virtual void connect(
-        std::shared_ptr<AutonomousObservablePluginApi> autonomousObservablePluginApi) = 0;
+    virtual void onCardRemoved() = 0;
 };
 
-}
 }
 }
 }

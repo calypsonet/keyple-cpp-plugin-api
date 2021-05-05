@@ -13,42 +13,36 @@
 
 #pragma once
 
-#include <list>
-#include <memory>
-#include <string>
-
-/* Plugin */
-#include "AutonomousObservablePluginApi.h"
-#include "PluginSpi.h"
+#include "Exception.h"
 
 namespace keyple {
 namespace core {
 namespace plugin {
-namespace spi {
 
-using namespace keyple::core::plugin;
+using namespace keyple::core::util::cpp::exception;
 
 /**
- * Plugin (non pool) having autonomous capabilities to observe reader connections and
- * disconnections.
- *
- * <p>Plugin events are produced by the plugin itself.
+ * Indicates that an error occurred while communicating with a card.
  *
  * @since 2.0
  */
-class AutonomousObservablePluginSpi : public PluginSpi {
+class CardIOException : public Exception {
 public:
     /**
-     * Connects the associated Keyple Core {@link AutonomousObservablePluginApi} API.
-     *
-     * @param autonomousObservablePluginApi The API to connect.
+     * @param message the message to identify the exception context
      * @since 2.0
      */
-    virtual void connect(
-        std::shared_ptr<AutonomousObservablePluginApi> autonomousObservablePluginApi) = 0;
+    CardIOException(const std::string& message) : Exception(message) {}
+
+    /**
+     * @param message the message to identify the exception context
+     * @param cause the cause
+     * @since 2.0
+     */
+    CardIOException(const std::string& message, const std::exception cause)
+    : Exception(message, cause) {}
 };
 
-}
 }
 }
 }

@@ -18,7 +18,6 @@
 #include <string>
 
 /* Plugin */
-#include "AutonomousObservablePluginApi.h"
 #include "PluginSpi.h"
 
 namespace keyple {
@@ -26,26 +25,46 @@ namespace core {
 namespace plugin {
 namespace spi {
 
-using namespace keyple::core::plugin;
+using namespace keyple::core::plugin::spi::reader;
 
 /**
- * Plugin (non pool) having autonomous capabilities to observe reader connections and
- * disconnections.
+ * Plugin (non pool) able to manage a dynamic list of readers and provide the content on request
+ * (for example PC/SC).
  *
- * <p>Plugin events are produced by the plugin itself.
+ * <p>The production of plugin events (connection/disconnection of readers) is handled by the Keyple
+ * Core adapter.
  *
  * @since 2.0
  */
-class AutonomousObservablePluginSpi : public PluginSpi {
+class ObservablePluginSpi : public PluginSpi {
 public:
     /**
-     * Connects the associated Keyple Core {@link AutonomousObservablePluginApi} API.
+     * Gets the recommended time cycle in milliseconds to check the list of current readers.
      *
-     * @param autonomousObservablePluginApi The API to connect.
+     * @return A positive int
      * @since 2.0
      */
-    virtual void connect(
-        std::shared_ptr<AutonomousObservablePluginApi> autonomousObservablePluginApi) = 0;
+    virtual int getMonitoringCycleDuration() = 0;
+
+    /**
+     * Enumerates currently available readers and returns their names as a collection of String.
+     *
+     * @return An empty list if no reader is available
+     * @throws PluginIOException If an error occurs while searching readers.
+     * @since 2.0
+     */
+    virtual const std::vector<const std::string> searchAvailableReadersNames() = 0;
+
+    /**
+     * Searches for the reader whose name is provided and returns its {@link ReaderSpi} if found,
+     * null if not.
+     *
+     * @param readerName The name of reader
+     * @return null if the reader is not found
+     * @throws PluginIOException If an error occurs while searching the reader.
+     * @since 2.0
+     */
+    virtual std::shared_ptr<ReaderSpi> searchReader(const std::string& readerName) = 0;
 };
 
 }

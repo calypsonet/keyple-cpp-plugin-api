@@ -13,41 +13,48 @@
 
 #pragma once
 
-#include <list>
 #include <memory>
-#include <string>
 
 /* Plugin */
-#include "AutonomousObservablePluginApi.h"
-#include "PluginSpi.h"
+#include "WaitForCardInsertionAutonomousReaderApi.h"
 
 namespace keyple {
 namespace core {
 namespace plugin {
 namespace spi {
+namespace reader {
+namespace observable {
+namespace state {
+namespace insertion {
 
 using namespace keyple::core::plugin;
 
 /**
- * Plugin (non pool) having autonomous capabilities to observe reader connections and
- * disconnections.
+ * Reader that have a fully integrated management of card communications for card insertion
+ * detection.
  *
- * <p>Plugin events are produced by the plugin itself.
+ * <p>A typical example of readers conforming to this mode of operation are Android-based NFC
+ * readers.
  *
  * @since 2.0
  */
-class AutonomousObservablePluginSpi : public PluginSpi {
+class WaitForCardInsertionAutonomousSpi {
 public:
     /**
-     * Connects the associated Keyple Core {@link AutonomousObservablePluginApi} API.
+     * Connects the associated Keyple Core {@link WaitForCardInsertionAutonomousReaderApi} API.
      *
-     * @param autonomousObservablePluginApi The API to connect.
+     * @param waitForCardInsertionAutonomousReaderApi The API to connect.
      * @since 2.0
      */
     virtual void connect(
-        std::shared_ptr<AutonomousObservablePluginApi> autonomousObservablePluginApi) = 0;
+        std::shared_ptr<WaitForCardInsertionAutonomousReaderApi>
+            waitForCardInsertionAutonomousReaderApi) = 0;
 };
 
+}
+}
+}
+}
 }
 }
 }

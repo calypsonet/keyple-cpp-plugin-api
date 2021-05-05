@@ -13,39 +13,56 @@
 
 #pragma once
 
-#include <list>
-#include <memory>
-#include <string>
+#include <string.h>
 
 /* Plugin */
-#include "AutonomousObservablePluginApi.h"
 #include "PluginSpi.h"
+#include "PoolPluginSpi.h"
 
 namespace keyple {
 namespace core {
 namespace plugin {
 namespace spi {
 
-using namespace keyple::core::plugin;
-
 /**
- * Plugin (non pool) having autonomous capabilities to observe reader connections and
- * disconnections.
- *
- * <p>Plugin events are produced by the plugin itself.
+ * Factory of {@link PoolPluginSpi}
  *
  * @since 2.0
  */
-class AutonomousObservablePluginSpi : public PluginSpi {
+class PoolPluginFactorySpi {
 public:
     /**
-     * Connects the associated Keyple Core {@link AutonomousObservablePluginApi} API.
+     * Gets the plugin's API version used at compile time
      *
-     * @param autonomousObservablePluginApi The API to connect.
+     * @return A not empty String
      * @since 2.0
      */
-    virtual void connect(
-        std::shared_ptr<AutonomousObservablePluginApi> autonomousObservablePluginApi) = 0;
+    virtual const std::string& getPluginApiVersion() const = 0;
+
+    /**
+     * Gets the commons's API version used at compile time
+     *
+     * @return A not empty String
+     * @since 2.0
+     */
+    virtual const std::string& getCommonsApiVersion() const = 0;
+
+    /**
+     * Retrieves the name of the pool plugin that will be instantiated by this factory (can be static
+     * or dynamic)
+     *
+     * @return A not empty String
+     * @since 2.0
+     */
+    virtual const std::string& getPoolPluginName() const = 0;
+
+    /**
+     * Retrieves an instance of a pool plugin SPI (can be a singleton or not)
+     *
+     * @return A not null reference
+     * @since 2.0
+     */
+    PoolPluginSpi& getPoolPlugin() = 0;
 };
 
 }

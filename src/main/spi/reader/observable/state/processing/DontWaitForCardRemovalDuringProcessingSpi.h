@@ -13,41 +13,29 @@
 
 #pragma once
 
-#include <list>
-#include <memory>
-#include <string>
-
-/* Plugin */
-#include "AutonomousObservablePluginApi.h"
-#include "PluginSpi.h"
-
 namespace keyple {
 namespace core {
 namespace plugin {
 namespace spi {
-
-using namespace keyple::core::plugin;
+namespace reader {
+namespace observable {
+namespace state {
+namespace processing {
 
 /**
- * Plugin (non pool) having autonomous capabilities to observe reader connections and
- * disconnections.
+ * Reader <b>not</b> able to detect a card removal during processing, between two APDU commands.
  *
- * <p>Plugin events are produced by the plugin itself.
+ * <p>A typical example of readers conforming to this mode of operation are are terminals embedding
+ * a slave RF communication module.
  *
  * @since 2.0
  */
-class AutonomousObservablePluginSpi : public PluginSpi {
-public:
-    /**
-     * Connects the associated Keyple Core {@link AutonomousObservablePluginApi} API.
-     *
-     * @param autonomousObservablePluginApi The API to connect.
-     * @since 2.0
-     */
-    virtual void connect(
-        std::shared_ptr<AutonomousObservablePluginApi> autonomousObservablePluginApi) = 0;
-};
+class DontWaitForCardRemovalDuringProcessingSpi {};
 
+}
+}
+}
+}
 }
 }
 }
