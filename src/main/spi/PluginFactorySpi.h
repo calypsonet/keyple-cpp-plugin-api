@@ -13,50 +13,55 @@
 
 #pragma once
 
-#include <list>
-#include <memory>
-#include <string>
+#include <string.h>
 
 /* Plugin */
-#include "ReaderSpi.h"
+#include "PluginSpi.h"
 
 namespace keyple {
 namespace core {
 namespace plugin {
 namespace spi {
 
-using namespace keyple::core::plugin::spi::reader;
-
 /**
- * Plugin (non pool) able to manage a static list of readers.
+ * Factory of {@link PluginSpi}
  *
  * @since 2.0
  */
-class PluginSpi {
+class PluginFactorySpi {
 public:
     /**
-     * Gets the name of the plugin.
+     * Gets the plugin's API version used at compile time
      *
-     * @return A not empty string.
+     * @return A not empty String
      * @since 2.0
      */
-    virtual const std::string& getName() const = 0;
+    virtual const std::string& getPluginApiVersion() const = 0;
 
     /**
-     * Enumerates currently available readers.
+     * Gets the commons's API version used at compile time
      *
-     * @return A empty Set if no reader is available.
-     * @throws PluginIOException If an error occurs while searching readers.
+     * @return A not empty String
      * @since 2.0
      */
-    virtual const std::vector<std::shared_ptr<ReaderSpi>> searchAvailableReaders() = 0;
+    virtual const std::string& getCommonsApiVersion() const = 0;
 
     /**
-     * Invoked when unregistering the plugin.
+     * Retrieves the name of the plugin that will be instantiated by this factory (can be static or
+     * dynamic)
      *
+     * @return A not empty String
      * @since 2.0
      */
-    virtual void unregister() = 0;
+  virtual const std::string& getPluginName() const = 0;
+
+    /**
+     * Retrieves an instance of a plugin SPI (can be a singleton or not)
+     *
+     * @return A not null reference
+     * @since 2.0
+     */
+    virtual std::shared_ptr<PluginSpi> getPlugin() const = 0;
 };
 
 }

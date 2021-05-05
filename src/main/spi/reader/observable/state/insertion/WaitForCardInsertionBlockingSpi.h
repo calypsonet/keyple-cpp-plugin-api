@@ -13,52 +13,51 @@
 
 #pragma once
 
-#include <list>
-#include <memory>
-#include <string>
-
-/* Plugin */
-#include "ReaderSpi.h"
-
 namespace keyple {
 namespace core {
 namespace plugin {
 namespace spi {
-
-using namespace keyple::core::plugin::spi::reader;
+namespace reader {
+namespace observable {
+namespace state {
+namespace insertion {
 
 /**
- * Plugin (non pool) able to manage a static list of readers.
+ * Reader able to wait autonomously and indefinitely for the insertion of a card by implementing a
+ * waiting mechanism.
+ *
+ * <p>A typical example of readers conforming to this mode of operation are PC/SC type readers
+ * capable of performing RF polling without waiting for a command from the application.
  *
  * @since 2.0
  */
-class PluginSpi {
+class WaitForCardInsertionBlockingSpi {
 public:
     /**
-     * Gets the name of the plugin.
+     * Waits indefinitely for a card to be inserted.
      *
-     * @return A not empty string.
+     * <p>This wait can be cancelled for an internal (for example timeout) or external reason (for
+     * example invocation of {@link #stopWaitForCardInsertion()}), in this case an exception is
+     * raised.
+     *
+     * @throw ReaderIOException If the communication with the reader has failed.
+     * @throw TaskCanceledException If the task has been canceled and is no longer active
      * @since 2.0
      */
-    virtual const std::string& getName() const = 0;
+    virtual void waitForCardInsertion() = 0;
 
     /**
-     * Enumerates currently available readers.
-     *
-     * @return A empty Set if no reader is available.
-     * @throws PluginIOException If an error occurs while searching readers.
-     * @since 2.0
-     */
-    virtual const std::vector<std::shared_ptr<ReaderSpi>> searchAvailableReaders() = 0;
-
-    /**
-     * Invoked when unregistering the plugin.
+     * Interrupts the waiting of a card insertion.
      *
      * @since 2.0
      */
-    virtual void unregister() = 0;
+    virtual void stopWaitForCardInsertion() = 0;
 };
 
+}
+}
+}
+}
 }
 }
 }
