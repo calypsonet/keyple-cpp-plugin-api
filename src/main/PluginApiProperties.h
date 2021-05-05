@@ -13,58 +13,35 @@
 
 #pragma once
 
-#include <string.h>
-
-/* Plugin */
-#include "PluginSpi.h"
+#include <string>
 
 namespace keyple {
 namespace core {
 namespace plugin {
-namespace spi {
 
 /**
- * Factory of {@link PluginSpi}
+ * API properties
  *
  * @since 2.0
  */
-class PluginFactorySpi {
+class PluginApiProperties final {
 public:
     /**
-     * Gets the plugin's API version used at compile time
+     * API version: {@value}
      *
-     * @return A not empty String
      * @since 2.0
      */
-    virtual const std::string& getPluginApiVersion() const = 0;
+    static const std::string VERSION;
 
+private:
     /**
-     * Gets the commons's API version used at compile time
-     *
-     * @return A not empty String
-     * @since 2.0
+     * Private constructor
      */
-    virtual const std::string& getCommonsApiVersion() const = 0;
-
-    /**
-     * Retrieves the name of the plugin that will be instantiated by this factory (can be static or
-     * dynamic)
-     *
-     * @return A not empty String
-     * @since 2.0
-     */
-  virtual const std::string& getPluginName() const = 0;
-
-    /**
-     * Retrieves an instance of a plugin SPI (can be a singleton or not)
-     *
-     * @return A not null reference
-     * @since 2.0
-     */
-    virtual PluginSpi& getPlugin() const = 0;
+    PluginApiProperties() {}
 };
 
-}
+const std::string PluginApiProperties::VERSION = "2.0";
+
 }
 }
 }
