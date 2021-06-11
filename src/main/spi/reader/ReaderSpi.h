@@ -1,6 +1,5 @@
 /**************************************************************************************************
- * Copyright (c) 2021 Calypso Networks Association                                                *
- * https://www.calypsonet-asso.org/                                                               *
+ * Copyright (c) 2021 Calypso Networks Association https://calypsonet.org/                        *
  *                                                                                                *
  * See the NOTICE file(s) distributed with this work for additional information regarding         *
  * copyright ownership.                                                                           *
@@ -131,7 +130,7 @@ public:
      * @return A not empty array
      * @since 2.0
      */
-    virtual const std::vector<uint8_t>& getPowerOnDataBytes() const = 0;
+    virtual const std::vector<uint8_t>& getPowerOnData() const = 0;
 
     /**
      * Transmits an APDU and returns its response.
