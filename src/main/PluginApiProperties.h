@@ -20,7 +20,7 @@ namespace core {
 namespace plugin {
 
 /**
- * API properties
+ * API properties.
  *
  * @since 2.0
  */

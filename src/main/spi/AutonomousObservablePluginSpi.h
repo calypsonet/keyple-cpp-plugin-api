@@ -18,6 +18,7 @@
 #include <string>
 
 /* Plugin */
+#include "AutonomousObservablePluginApi.h"
 #include "PluginSpi.h"
 
 namespace keyple {
@@ -25,46 +26,26 @@ namespace core {
 namespace plugin {
 namespace spi {
 
-using namespace keyple::core::plugin::spi::reader;
+using namespace keyple::core::plugin;
 
 /**
- * Plugin (non pool) able to manage a dynamic list of readers and provide the content on request
- * (for example PC/SC).
+ * Plugin (non pool) having autonomous capabilities to observe reader connections and
+ * disconnections.
  *
- * <p>The production of plugin events (connection/disconnection of readers) is handled by the Keyple
- * Core adapter.
+ * <p>Plugin events are produced by the plugin itself.
  *
  * @since 2.0
  */
-class ObservablePluginSpi : public PluginSpi {
+class AutonomousObservablePluginSpi : public PluginSpi {
 public:
     /**
-     * Gets the recommended time cycle in milliseconds to check the list of current readers.
+     * Connects the associated Keyple Core {@link AutonomousObservablePluginApi} API.
      *
-     * @return A positive int
+     * @param autonomousObservablePluginApi The API to connect.
      * @since 2.0
      */
-    virtual int getMonitoringCycleDuration() = 0;
-
-    /**
-     * Enumerates currently available readers and returns their names as a collection of String.
-     *
-     * @return An empty list if no reader is available
-     * @throws PluginIOException If an error occurs while searching readers.
-     * @since 2.0
-     */
-    virtual const std::vector<const std::string> searchAvailableReadersNames() = 0;
-
-    /**
-     * Searches for the reader whose name is provided and returns its {@link ReaderSpi} if found,
-     * null if not.
-     *
-     * @param readerName The name of reader
-     * @return null if the reader is not found
-     * @throws PluginIOException If an error occurs while searching the reader.
-     * @since 2.0
-     */
-    virtual std::shared_ptr<ReaderSpi> searchReader(const std::string& readerName) = 0;
+    virtual void connect(
+        std::shared_ptr<AutonomousObservablePluginApi> autonomousObservablePluginApi) = 0;
 };
 
 }

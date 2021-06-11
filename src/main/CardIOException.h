@@ -13,38 +13,34 @@
 
 #pragma once
 
-#include <memory>
-#include <string>
-#include <vector>
+#include "Exception.h"
 
 namespace keyple {
 namespace core {
 namespace plugin {
 
+using namespace keyple::core::util::cpp::exception;
+
 /**
- * API associated to a {@link org.eclipse.keyple.core.plugin.spi.AutonomousObservablePluginSpi}
+ * Indicates that an error occurred while communicating with a card.
  *
  * @since 2.0
  */
-class AutonomousObservablePluginApi {
+class CardIOException : public Exception {
 public:
     /**
-     * Must be invoked when one or more readers are connected to the system.
-     *
-     * @param readers the readers connected
-     * @throw IllegalArgumentException If the Set provided as argument is null or empty
+     * @param message the message to identify the exception context
      * @since 2.0
      */
-    virtual void onReaderConnected(const std::vector<std::shared_ptr<ReaderSpi>>& readers) = 0;
+    CardIOException(const std::string& message) : Exception(message) {}
 
     /**
-     * Must be invoked when one or more readers are disconnected from the system.
-     *
-     * @param readersNames the readers names disconnected
-     * @throw IllegalArgumentException If the Set provided as argument is null or empty
+     * @param message the message to identify the exception context
+     * @param cause the cause
      * @since 2.0
      */
-    virtual void onReaderDisconnected(const std::vector<const std::string> readersNames) = 0;
+    CardIOException(const std::string& message, const std::exception cause)
+    : Exception(message, cause) {}
 };
 
 }
