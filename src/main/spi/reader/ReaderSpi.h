@@ -162,7 +162,7 @@ public:
      *
      * @since 2.0
      */
-    virtual void unregister() = 0;
+    virtual void onUnregister() = 0;
 };
 
 }

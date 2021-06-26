@@ -16,12 +16,17 @@
 #include <string>
 #include <vector>
 
+/* Keyple Plugin */
+#include "ReaderSpi.h"
+
 namespace keyple {
 namespace core {
 namespace plugin {
 
+using namespace keyple::core::plugin::spi::reader;
+
 /**
- * API associated to a {@link org.eclipse.keyple.core.plugin.spi.AutonomousObservablePluginSpi}
+ * API associated to a keyple::core::plugin::spi::AutonomousObservablePluginSpi.
  *
  * @since 2.0
  */
@@ -43,7 +48,7 @@ public:
      * @throw IllegalArgumentException If the Set provided as argument is null or empty
      * @since 2.0
      */
-    virtual void onReaderDisconnected(const std::vector<const std::string> readerNames) = 0;
+    virtual void onReaderDisconnected(const std::vector<const std::string>& readerNames) = 0;
 };
 
 }
