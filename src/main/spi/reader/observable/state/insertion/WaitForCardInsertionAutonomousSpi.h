@@ -42,12 +42,13 @@ public:
     /**
      * Connects the associated Keyple Core {@link WaitForCardInsertionAutonomousReaderApi} API.
      *
+     * /!\ C++: cannot use a shared_ptr here as this is called from constructors
+     *
      * @param waitForCardInsertionAutonomousReaderApi The API to connect.
      * @since 2.0
      */
     virtual void connect(
-        std::shared_ptr<WaitForCardInsertionAutonomousReaderApi>
-            waitForCardInsertionAutonomousReaderApi) = 0;
+        WaitForCardInsertionAutonomousReaderApi* waitForCardInsertionAutonomousReaderApi) = 0;
 };
 
 }
