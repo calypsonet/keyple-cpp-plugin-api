@@ -40,11 +40,12 @@ public:
     /**
      * Connects the associated Keyple Core {@link AutonomousObservablePluginApi} API.
      *
+     * /!\ C++: cannot use a shared_ptr here as this function is called from constructors
+     *
      * @param autonomousObservablePluginApi The API to connect.
      * @since 2.0
      */
-    virtual void connect(
-        std::shared_ptr<AutonomousObservablePluginApi> autonomousObservablePluginApi) = 0;
+    virtual void connect(AutonomousObservablePluginApi* autonomousObservablePluginApi) = 0;
 };
 
 }

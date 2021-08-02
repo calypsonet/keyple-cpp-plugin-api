@@ -48,7 +48,7 @@ public:
      * @throw IllegalArgumentException If the Set provided as argument is null or empty
      * @since 2.0
      */
-    virtual void onReaderDisconnected(const std::vector<const std::string>& readerNames) = 0;
+    virtual void onReaderDisconnected(const std::vector<std::string>& readerNames) = 0;
 };
 
 }

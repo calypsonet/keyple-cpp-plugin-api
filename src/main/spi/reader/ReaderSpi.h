@@ -38,7 +38,7 @@ public:
      * @return A not empty string.
      * @since 2.0
      */
-    virtual const std::string& getName() = 0;
+    virtual const std::string& getName() const = 0;
 
     /**
      * Indicates if the provided reader protocol is supported by the reader.
@@ -130,7 +130,7 @@ public:
      * @return A not empty array
      * @since 2.0
      */
-    virtual const std::vector<uint8_t>& getPowerOnData() const = 0;
+    virtual const std::string getPowerOnData() const = 0;
 
     /**
      * Transmits an APDU and returns its response.
