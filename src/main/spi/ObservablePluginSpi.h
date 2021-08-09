@@ -43,7 +43,7 @@ public:
      * @return A positive int
      * @since 2.0
      */
-    virtual int getMonitoringCycleDuration() = 0;
+    virtual int getMonitoringCycleDuration() const = 0;
 
     /**
      * Enumerates currently available readers and returns their names as a collection of String.
@@ -52,7 +52,7 @@ public:
      * @throws PluginIOException If an error occurs while searching readers.
      * @since 2.0
      */
-    virtual const std::vector<const std::string> searchAvailableReaderNames() = 0;
+    virtual const std::vector<std::string> searchAvailableReaderNames() = 0;
 
     /**
      * Searches for the reader whose name is provided and returns its {@link ReaderSpi} if found,

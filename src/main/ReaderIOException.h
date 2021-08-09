@@ -38,7 +38,7 @@ public:
      * @param cause the cause
      * @since 2.0
      */
-    ReaderIOException(const std::string& message, const std::exception cause)
+    ReaderIOException(const std::string& message, const std::shared_ptr<Exception> cause)
     : Exception(message, cause) {}
 };
 
