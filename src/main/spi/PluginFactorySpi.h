@@ -52,7 +52,7 @@ public:
      * @return A not empty String
      * @since 2.0
      */
-  virtual const std::string& getPluginName() const = 0;
+    virtual const std::string& getPluginName() const = 0;
 
     /**
      * Retrieves an instance of a plugin SPI (can be a singleton or not)
