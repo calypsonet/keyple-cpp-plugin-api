@@ -30,6 +30,11 @@ namespace spi {
 class PluginFactorySpi {
 public:
     /**
+     * 
+     */
+    virtual ~PluginFactorySpi() = default;
+    
+    /**
      * Gets the plugin's API version used at compile time
      *
      * @return A not empty String

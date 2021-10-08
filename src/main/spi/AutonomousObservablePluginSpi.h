@@ -38,6 +38,11 @@ using namespace keyple::core::plugin;
 class AutonomousObservablePluginSpi : public PluginSpi {
 public:
     /**
+     * 
+     */
+    virtual ~AutonomousObservablePluginSpi() = default;
+
+    /**
      * Connects the associated Keyple Core {@link AutonomousObservablePluginApi} API.
      *
      * /!\ C++: cannot use a shared_ptr here as this function is called from constructors

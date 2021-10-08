@@ -33,6 +33,11 @@ namespace spi {
 class PoolPluginSpi {
 public:
     /**
+     * 
+     */
+    virtual ~PoolPluginSpi() = default;
+
+    /**
      * Gets the name of the pool plugin.
      *
      * @return A not empty string.

@@ -25,6 +25,11 @@ namespace plugin {
 class WaitForCardRemovalAutonomousReaderApi {
 public:
     /**
+     *
+     */
+    virtual ~WaitForCardRemovalAutonomousReaderApi() = default;
+    
+    /**
      * Must be invoked when a card is removed.
      *
      * @since 2.0

@@ -33,6 +33,11 @@ namespace reader {
 class ReaderSpi {
 public:
     /**
+     * 
+     */
+    virtual ~ReaderSpi() = default;
+    
+    /**
      * Gets the name of the reader.
      *
      * @return A not empty string.

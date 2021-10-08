@@ -34,6 +34,11 @@ using namespace keyple::core::plugin::spi::reader;
 class PluginSpi {
 public:
     /**
+     * 
+     */
+    virtual ~PluginSpi() = default;
+    
+    /**
      * Gets the name of the plugin.
      *
      * @return A not empty string.

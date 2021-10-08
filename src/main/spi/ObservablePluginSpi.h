@@ -38,6 +38,11 @@ using namespace keyple::core::plugin::spi::reader;
 class ObservablePluginSpi : public PluginSpi {
 public:
     /**
+     * 
+     */
+    virtual ~ObservablePluginSpi() = default;
+    
+    /**
      * Gets the recommended time cycle in milliseconds to check the list of current readers.
      *
      * @return A positive int

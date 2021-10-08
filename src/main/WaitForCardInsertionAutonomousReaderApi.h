@@ -25,6 +25,11 @@ namespace plugin {
 class WaitForCardInsertionAutonomousReaderApi {
 public:
     /**
+     * 
+     */
+    virtual ~WaitForCardInsertionAutonomousReaderApi() = default;
+    
+    /**
      * Must be invoked when a card is inserted.
      *
      * @since 2.0

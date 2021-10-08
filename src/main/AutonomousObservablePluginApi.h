@@ -33,6 +33,11 @@ using namespace keyple::core::plugin::spi::reader;
 class AutonomousObservablePluginApi {
 public:
     /**
+     * 
+     */
+    virtual ~AutonomousObservablePluginApi() = default;
+    
+    /**
      * Must be invoked when one or more readers are connected to the system.
      *
      * @param readers the readers connected
