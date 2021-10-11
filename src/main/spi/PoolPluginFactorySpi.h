@@ -66,7 +66,7 @@ public:
      * @return A not null reference
      * @since 2.0
      */
-    virtual PoolPluginSpi& getPoolPlugin() = 0;
+    virtual std::shared_ptr<PoolPluginSpi> getPoolPlugin() = 0;
 };
 
 }
