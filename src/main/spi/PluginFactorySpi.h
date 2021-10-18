@@ -65,7 +65,7 @@ public:
      * @return A not null reference
      * @since 2.0
      */
-    virtual std::shared_ptr<PluginSpi> getPlugin() const = 0;
+    virtual std::shared_ptr<PluginSpi> getPlugin() = 0;
 };
 
 }

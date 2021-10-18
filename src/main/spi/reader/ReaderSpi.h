@@ -15,6 +15,7 @@
 #include <cstdint>
 #include <list>
 #include <memory>
+#include <ostream>
 #include <string>
 #include <vector>
 
@@ -168,7 +169,41 @@ public:
      * @since 2.0
      */
     virtual void onUnregister() = 0;
+
+    /**
+     * 
+     */
+    friend std::ostream& operator<<(std::ostream& os, std::shared_ptr<ReaderSpi> rs)
+    {
+        (void)rs;
+        
+        os << "TODO";
+
+        return os;
+    }
+
+    /**
+     * 
+     */
+    friend std::ostream& operator<<(std::ostream& os,
+                                    const std::vector<std::shared_ptr<ReaderSpi>>& rss)
+    {
+        os << "READER_SPIS: {";
+
+        for (auto it = std::begin(rss); it != std::end(rss); ++it) {
+            os << *it;
+            if (it != rss.end()) {
+                os << ", ";
+            }
+        }
+
+        os << "}";
+
+        return os;   
+    }
 };
+
+
 
 }
 }

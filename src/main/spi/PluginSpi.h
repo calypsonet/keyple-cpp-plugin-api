@@ -53,7 +53,7 @@ public:
      * @throws PluginIOException If an error occurs while searching readers.
      * @since 2.0
      */
-    virtual const std::vector<std::shared_ptr<ReaderSpi>> searchAvailableReaders() const = 0;
+    virtual const std::vector<std::shared_ptr<ReaderSpi>> searchAvailableReaders() = 0;
 
     /**
      * Invoked when unregistering the plugin.
