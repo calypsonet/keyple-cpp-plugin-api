@@ -25,7 +25,7 @@ namespace reader {
  * Reader able to manage multiple protocols and which allows the configuration of the protocol to
  * use.
  *
- * @since 2.0
+ * @since 2.0.0
  */
 class ConfigurableReaderSpi : public ReaderSpi {
 public:
@@ -42,7 +42,7 @@ public:
      *
      * @param readerProtocol The reader protocol.
      * @return True if the protocol is supported, false if not.
-     * @since 2.0
+     * @since 2.0.0
      */
     virtual bool isProtocolSupported(const std::string& readerProtocol) const = 0;
 
@@ -51,7 +51,7 @@ public:
      * using this protocol.
      *
      * @param readerProtocol The reader specific protocol to activate.
-     * @since 2.0
+     * @since 2.0.0
      */
     virtual void activateProtocol(const std::string& readerProtocol) = 0;
 
@@ -59,7 +59,7 @@ public:
      * Deactivates a specific protocol so that the reader ignores cards using this protocol.
      *
      * @param readerProtocol The reader specific protocol to deactivate.
-     * @since 2.0
+     * @since 2.0.0
      */
     virtual void deactivateProtocol(const std::string& readerProtocol) = 0;
 
@@ -68,7 +68,7 @@ public:
      *
      * @param readerProtocol The reader protocol to check.
      * @return True if the current protocol corresponds to the one provided, false if not.
-     * @since 2.0
+     * @since 2.0.0
      */
     virtual bool isCurrentProtocol(const std::string& readerProtocol) = 0;
 };

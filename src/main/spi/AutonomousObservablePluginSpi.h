@@ -33,7 +33,7 @@ using namespace keyple::core::plugin;
  *
  * <p>Plugin events are produced by the plugin itself.
  *
- * @since 2.0
+ * @since 2.0.0
  */
 class AutonomousObservablePluginSpi : public PluginSpi {
 public:
@@ -48,7 +48,7 @@ public:
      * /!\ C++: cannot use a shared_ptr here as this function is called from constructors
      *
      * @param autonomousObservablePluginApi The API to connect.
-     * @since 2.0
+     * @since 2.0.0
      */
     virtual void connect(AutonomousObservablePluginApi* autonomousObservablePluginApi) = 0;
 };

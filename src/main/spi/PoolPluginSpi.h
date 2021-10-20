@@ -28,7 +28,7 @@ namespace spi {
  * Plugin able to manage a dynamic list of readers based on a allocation/deallocation mechanism (for
  * example HSM).
  *
- * @since 2.0
+ * @since 2.0.0
  */
 class PoolPluginSpi {
 public:
@@ -41,7 +41,7 @@ public:
      * Gets the name of the pool plugin.
      *
      * @return A not empty string.
-     * @since 2.0
+     * @since 2.0.0
      */
     virtual const std::string& getName() const  = 0;
 
@@ -54,7 +54,7 @@ public:
      *
      * @return An empty Set if there is no group reference
      * @throw PluginIOException If an error occurs
-     * @since 2.0
+     * @since 2.0.0
      */
     virtual const std::vector<std::string>& getReaderGroupReferences() const = 0;
 
@@ -67,7 +67,7 @@ public:
      * @param readerGroupReference The reader group reference (optional)
      * @return A not null reference
      * @throw PluginIOException If an error occurs
-     * @since 2.0
+     * @since 2.0.0
      */
     virtual std::shared_ptr<ReaderSpi> allocateReader(const std::string& readerGroupReference) = 0;
 
@@ -80,14 +80,14 @@ public:
      *
      * @param readerSpi The reader to deallocate
      * @throw PluginIOException If an error occurs
-     * @since 2.0
+     * @since 2.0.0
      */
     virtual void releaseReader(std::shared_ptr<ReaderSpi> readerSpi) = 0;
 
     /**
      * Invoked when unregistering the plugin.
      *
-     * @since 2.0
+     * @since 2.0.0
      */
     virtual void onUnregister() = 0;
 };

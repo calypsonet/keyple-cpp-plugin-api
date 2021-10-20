@@ -28,7 +28,7 @@ using namespace keyple::core::plugin::spi::reader;
 /**
  * API associated to a keyple::core::plugin::spi::AutonomousObservablePluginSpi.
  *
- * @since 2.0
+ * @since 2.0.0
  */
 class AutonomousObservablePluginApi {
 public:
@@ -42,7 +42,7 @@ public:
      *
      * @param readers the readers connected
      * @throw IllegalArgumentException If the Set provided as argument is null or empty
-     * @since 2.0
+     * @since 2.0.0
      */
     virtual void onReaderConnected(const std::vector<std::shared_ptr<ReaderSpi>>& readers) = 0;
 
@@ -51,7 +51,7 @@ public:
      *
      * @param readerNames the readers names disconnected
      * @throw IllegalArgumentException If the Set provided as argument is null or empty
-     * @since 2.0
+     * @since 2.0.0
      */
     virtual void onReaderDisconnected(const std::vector<std::string>& readerNames) = 0;
 };

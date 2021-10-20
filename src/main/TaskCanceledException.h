@@ -24,13 +24,13 @@ using namespace keyple::core::util::cpp::exception;
  * Indicates that a task (for example, waiting for a card to be inserted) has been cancelled and is
  * no longer active.
  *
- * @since 2.0
+ * @since 2.0.0
  */
 class TaskCanceledException : public Exception {
 public:
     /**
      * @param message the message to identify the exception context
-     * @since 2.0
+     * @since 2.0.0
      */
     TaskCanceledException(const std::string& message) : Exception(message) {}
 };

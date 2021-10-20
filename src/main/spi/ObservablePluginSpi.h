@@ -33,7 +33,7 @@ using namespace keyple::core::plugin::spi::reader;
  * <p>The production of plugin events (connection/disconnection of readers) is handled by the Keyple
  * Core adapter.
  *
- * @since 2.0
+ * @since 2.0.0
  */
 class ObservablePluginSpi : public PluginSpi {
 public:
@@ -46,7 +46,7 @@ public:
      * Gets the recommended time cycle in milliseconds to check the list of current readers.
      *
      * @return A positive int
-     * @since 2.0
+     * @since 2.0.0
      */
     virtual int getMonitoringCycleDuration() const = 0;
 
@@ -55,7 +55,7 @@ public:
      *
      * @return An empty list if no reader is available
      * @throws PluginIOException If an error occurs while searching readers.
-     * @since 2.0
+     * @since 2.0.0
      */
     virtual const std::vector<std::string> searchAvailableReaderNames() = 0;
 
@@ -66,7 +66,7 @@ public:
      * @param readerName The name of reader
      * @return Null if the reader is not found
      * @throws PluginIOException If an error occurs while searching the reader.
-     * @since 2.0
+     * @since 2.0.0
      */
     virtual std::shared_ptr<ReaderSpi> searchReader(const std::string& readerName) = 0;
 };

@@ -28,7 +28,7 @@ namespace reader {
 /**
  * Reader having an autonomous mechanism to select the cards (for example OMAPI readers).
  *
- * @since 2.0
+ * @since 2.0.0
  */
 class AutonomousSelectionReaderSpi : public ReaderSpi {
 public:
@@ -49,7 +49,7 @@ public:
      * @return A not empty byte array containing the card answer to selection
      * @throw ReaderIOException If the communication with the reader has failed.
      * @throw CardIOException If the communication with the card has failed.
-     * @since 2.0
+     * @since 2.0.0
      */
     virtual std::vector<uint8_t> openChannelForAid(const std::vector<uint8_t> aid,
                                                    const uint8_t isoControlMask) = 0;
@@ -57,7 +57,7 @@ public:
     /**
      * Closes the logical channel explicitly.
      *
-     * @since 2.0
+     * @since 2.0.0
      */
     virtual void closeLogicalChannel() = 0;
 };

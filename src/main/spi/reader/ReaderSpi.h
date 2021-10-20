@@ -29,7 +29,7 @@ namespace reader {
  * Reader able to communicate with smart cards whose purpose is to remain present in the reader (for
  * example a SAM reader).
  *
- * @since 2.0
+ * @since 2.0.0
  */
 class ReaderSpi {
 public:
@@ -42,7 +42,7 @@ public:
      * Gets the name of the reader.
      *
      * @return A not empty string.
-     * @since 2.0
+     * @since 2.0.0
      */
     virtual const std::string& getName() const = 0;
 
@@ -51,7 +51,7 @@ public:
      *
      * @throw ReaderIOException If the communication with the reader has failed.
      * @throw CardIOException If the communication with the card has failed.
-     * @since 2.0
+     * @since 2.0.0
      */
     virtual void openPhysicalChannel() = 0;
 
@@ -61,7 +61,7 @@ public:
      * <p>The physical channel may have been implicitly closed previously by a card withdrawal.
      *
      * @throw ReaderIOException If the communication with the reader has failed.
-     * @since 2.0
+     * @since 2.0.0
      */
     virtual void closePhysicalChannel() = 0;
 
@@ -77,7 +77,7 @@ public:
      *
      * @return True if a card is present
      * @throw ReaderIOException If the communication with the reader has failed.
-     * @since 2.0
+     * @since 2.0.0
      */
     virtual bool checkCardPresence() = 0;
 
@@ -96,7 +96,7 @@ public:
      * stage of the ISO14443 protocol (ATQA, ATQB, ATS, SAK, etc).
      *
      * @return A not empty array
-     * @since 2.0
+     * @since 2.0.0
      */
     virtual const std::string getPowerOnData() const = 0;
 
@@ -110,7 +110,7 @@ public:
      * @return A buffer of at least 2 bytes.
      * @throw ReaderIOException If the communication with the reader has failed.
      * @throw CardIOException If the communication with the card has failed.
-     * @since 2.0
+     * @since 2.0.0
      */
     virtual const std::vector<uint8_t> transmitApdu(const std::vector<uint8_t>& apduIn) = 0;
 
@@ -121,14 +121,14 @@ public:
      *           flags accordingly.
      *
      * @return True if the reader a contactless type, false if not
-     * @since 2.0
+     * @since 2.0.0
      */
     virtual bool isContactless() = 0;
 
     /**
      * Invoked when unregistering the associated plugin.
      *
-     * @since 2.0
+     * @since 2.0.0
      */
     virtual void onUnregister() = 0;
 

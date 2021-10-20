@@ -20,7 +20,7 @@ namespace plugin {
  * API associated to a
  * keyple::core::plugin::spi::reader::observable::state::insertion::WaitForCardInsertionAutonomousSpi
  *
- * @since 2.0
+ * @since 2.0.0
  */
 class WaitForCardInsertionAutonomousReaderApi {
 public:
@@ -32,7 +32,7 @@ public:
     /**
      * Must be invoked when a card is inserted.
      *
-     * @since 2.0
+     * @since 2.0.0
      */
     virtual void onCardInserted() = 0;
 };

@@ -53,21 +53,21 @@ using namespace keyple::core::plugin::spi::reader;
  *   <li>{@link WaitForCardRemovalAutonomousSpi}
  * </ul>
  *
- * @since 2.0
+ * @since 2.0.0
  */
 class ObservableReaderSpi : public ReaderSpi {
 public:
     /**
      * Invoked when the card observation process is started
      *
-     * @since 2.0
+     * @since 2.0.0
      */
     virtual void onStartDetection() = 0;
 
     /**
      * Invoked when the card observation process is stopped
      *
-     * @since 2.0
+     * @since 2.0.0
      */
     virtual void onStopDetection() = 0;
 };

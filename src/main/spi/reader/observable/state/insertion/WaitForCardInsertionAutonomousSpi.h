@@ -35,7 +35,7 @@ using namespace keyple::core::plugin;
  * <p>A typical example of readers conforming to this mode of operation are Android-based NFC
  * readers.
  *
- * @since 2.0
+ * @since 2.0.0
  */
 class WaitForCardInsertionAutonomousSpi {
 public:
@@ -45,7 +45,7 @@ public:
      * /!\ C++: cannot use a shared_ptr here as this is called from constructors
      *
      * @param waitForCardInsertionAutonomousReaderApi The API to connect.
-     * @since 2.0
+     * @since 2.0.0
      */
     virtual void connect(
         WaitForCardInsertionAutonomousReaderApi* waitForCardInsertionAutonomousReaderApi) = 0;

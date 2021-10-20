@@ -26,7 +26,7 @@ namespace spi {
 /**
  * Factory of {@link PoolPluginSpi}
  *
- * @since 2.0
+ * @since 2.0.0
  */
 class PoolPluginFactorySpi {
 public:
@@ -39,7 +39,7 @@ public:
      * Gets the plugin's API version used at compile time
      *
      * @return A not empty String
-     * @since 2.0
+     * @since 2.0.0
      */
     virtual const std::string& getPluginApiVersion() const = 0;
 
@@ -47,7 +47,7 @@ public:
      * Gets the common's API version used at compile time
      *
      * @return A not empty String
-     * @since 2.0
+     * @since 2.0.0
      */
     virtual const std::string& getCommonApiVersion() const = 0;
 
@@ -56,7 +56,7 @@ public:
      * or dynamic)
      *
      * @return A not empty String
-     * @since 2.0
+     * @since 2.0.0
      */
     virtual const std::string& getPoolPluginName() const = 0;
 
@@ -64,7 +64,7 @@ public:
      * Retrieves an instance of a pool plugin SPI (can be a singleton or not)
      *
      * @return A not null reference
-     * @since 2.0
+     * @since 2.0.0
      */
     virtual std::shared_ptr<PoolPluginSpi> getPoolPlugin() = 0;
 };

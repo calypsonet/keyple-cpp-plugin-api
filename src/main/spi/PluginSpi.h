@@ -29,7 +29,7 @@ using namespace keyple::core::plugin::spi::reader;
 /**
  * Plugin (non pool) able to manage a static list of readers.
  *
- * @since 2.0
+ * @since 2.0.0
  */
 class PluginSpi {
 public:
@@ -42,7 +42,7 @@ public:
      * Gets the name of the plugin.
      *
      * @return A not empty string.
-     * @since 2.0
+     * @since 2.0.0
      */
     virtual const std::string& getName() const = 0;
 
@@ -51,14 +51,14 @@ public:
      *
      * @return A empty Set if no reader is available.
      * @throws PluginIOException If an error occurs while searching readers.
-     * @since 2.0
+     * @since 2.0.0
      */
     virtual const std::vector<std::shared_ptr<ReaderSpi>> searchAvailableReaders() = 0;
 
     /**
      * Invoked when unregistering the plugin.
      *
-     * @since 2.0
+     * @since 2.0.0
      */
     virtual void onUnregister() = 0;
 };

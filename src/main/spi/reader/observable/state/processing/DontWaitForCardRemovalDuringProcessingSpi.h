@@ -27,7 +27,7 @@ namespace processing {
  * <p>A typical example of readers conforming to this mode of operation are are terminals embedding
  * a slave RF communication module.
  *
- * @since 2.0
+ * @since 2.0.0
  */
 class DontWaitForCardRemovalDuringProcessingSpi {};
 

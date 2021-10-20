@@ -23,20 +23,20 @@ using namespace keyple::core::util::cpp::exception;
 /**
  * Indicates that an error occurred while communicating with a card.
  *
- * @since 2.0
+ * @since 2.0.0
  */
 class CardIOException : public Exception {
 public:
     /**
      * @param message the message to identify the exception context
-     * @since 2.0
+     * @since 2.0.0
      */
     CardIOException(const std::string& message) : Exception(message) {}
 
     /**
      * @param message the message to identify the exception context
      * @param cause the cause
-     * @since 2.0
+     * @since 2.0.0
      */
     CardIOException(const std::string& message, const std::shared_ptr<Exception> cause)
     : Exception(message, cause) {}

@@ -28,7 +28,7 @@ namespace insertion {
  * <p>A typical example of readers conforming to this mode of operation are terminals embedding a
  * slave RF communication module.
  *
- * @since 2.0
+ * @since 2.0.0
  */
 class WaitForCardInsertionNonBlockingSpi {};
 

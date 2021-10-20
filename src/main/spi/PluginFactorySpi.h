@@ -25,7 +25,7 @@ namespace spi {
 /**
  * Factory of {@link PluginSpi}
  *
- * @since 2.0
+ * @since 2.0.0
  */
 class PluginFactorySpi {
 public:
@@ -38,7 +38,7 @@ public:
      * Gets the plugin's API version used at compile time
      *
      * @return A not empty String
-     * @since 2.0
+     * @since 2.0.0
      */
     virtual const std::string& getPluginApiVersion() const = 0;
 
@@ -46,7 +46,7 @@ public:
      * Gets the common's API version used at compile time
      *
      * @return A not empty String
-     * @since 2.0
+     * @since 2.0.0
      */
     virtual const std::string& getCommonApiVersion() const = 0;
 
@@ -55,7 +55,7 @@ public:
      * dynamic)
      *
      * @return A not empty String
-     * @since 2.0
+     * @since 2.0.0
      */
     virtual const std::string& getPluginName() const = 0;
 
@@ -63,7 +63,7 @@ public:
      * Retrieves an instance of a plugin SPI (can be a singleton or not)
      *
      * @return A not null reference
-     * @since 2.0
+     * @since 2.0.0
      */
     virtual std::shared_ptr<PluginSpi> getPlugin() = 0;
 };

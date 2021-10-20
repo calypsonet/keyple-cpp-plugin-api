@@ -26,7 +26,7 @@ namespace processing {
  *
  * <p>A typical example of readers conforming to this mode of operation are PC/SC type readers.
  *
- * @since 2.0
+ * @since 2.0.0
  */
 class WaitForCardRemovalDuringProcessingBlockingSpi {
 public:
@@ -44,14 +44,14 @@ public:
      *
      * @throw ReaderIOException If the communication with the reader
      * @throw TaskCanceledException If the task has been canceled and is no longer active
-     * @since 2.0
+     * @since 2.0.0
      */
-    vitual void waitForCardRemovalDuringProcessing() = 0;
+    virtual void waitForCardRemovalDuringProcessing() = 0;
 
     /**
      * Interrupts the waiting of the removal of the card
      *
-     * @since 2.0
+     * @since 2.0.0
      */
     virtual void stopWaitForCardRemovalDuringProcessing() = 0;
 };
