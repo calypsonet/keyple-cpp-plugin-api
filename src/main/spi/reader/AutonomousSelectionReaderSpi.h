@@ -16,6 +16,9 @@
 #include <string>
 #include <vector>
 
+/* Keyple Core Plugin */
+#include "ReaderSpi.h"
+
 namespace keyple {
 namespace core {
 namespace plugin {
@@ -27,8 +30,13 @@ namespace reader {
  *
  * @since 2.0
  */
-class AutonomousSelectionReaderSpi {
+class AutonomousSelectionReaderSpi : public ReaderSpi {
 public:
+    /**
+     * 
+     */
+    virtual ~AutonomousSelectionReaderSpi() = default;
+    
     /**
      * Opens a logical channel for the provided AID
      *
