@@ -28,12 +28,12 @@ namespace processing {
  *
  * @since 2.0
  */
-class WaitForCardRemovalBlockingDuringProcessingSpi {
+class WaitForCardRemovalDuringProcessingBlockingSpi {
 public:
     /**
      * 
      */
-    virtual ~WaitForCardRemovalBlockingDuringProcessingSpi() = default;
+    virtual ~WaitForCardRemovalDuringProcessingBlockingSpi() = default;
 
     /**
      * Waits indefinitely for a card to be removed.
