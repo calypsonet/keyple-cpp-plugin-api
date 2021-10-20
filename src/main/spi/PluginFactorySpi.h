@@ -43,12 +43,12 @@ public:
     virtual const std::string& getPluginApiVersion() const = 0;
 
     /**
-     * Gets the commons's API version used at compile time
+     * Gets the common's API version used at compile time
      *
      * @return A not empty String
      * @since 2.0
      */
-    virtual const std::string& getCommonsApiVersion() const = 0;
+    virtual const std::string& getCommonApiVersion() const = 0;
 
     /**
      * Retrieves the name of the plugin that will be instantiated by this factory (can be static or
