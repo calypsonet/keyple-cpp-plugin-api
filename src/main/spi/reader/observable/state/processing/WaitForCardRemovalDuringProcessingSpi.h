@@ -28,7 +28,33 @@ namespace processing {
  *
  * @since 2.0
  */
-class WaitForCardRemovalDuringProcessingSpi {};
+class WaitForCardRemovalBlockingDuringProcessingSpi {
+public:
+    /**
+     * 
+     */
+    virtual ~WaitForCardRemovalBlockingDuringProcessingSpi() = default;
+
+    /**
+     * Waits indefinitely for a card to be removed.
+     *
+     * <p>This wait can be cancelled for an internal (for example timeout) or external reason (for
+     * example invocation of {@link #stopWaitForCardRemovalDuringProcessing()}), in this case an
+     * exception is raised.
+     *
+     * @throw ReaderIOException If the communication with the reader
+     * @throw TaskCanceledException If the task has been canceled and is no longer active
+     * @since 2.0
+     */
+    vitual void waitForCardRemovalDuringProcessing() = 0;
+
+    /**
+     * Interrupts the waiting of the removal of the card
+     *
+     * @since 2.0
+     */
+    virtual void stopWaitForCardRemovalDuringProcessing() = 0;
+};
 
 }
 }

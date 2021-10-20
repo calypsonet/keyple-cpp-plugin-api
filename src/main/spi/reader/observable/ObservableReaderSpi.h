@@ -41,7 +41,7 @@ using namespace keyple::core::plugin::spi::reader;
  * <p>For the card processing state, it must implement one of the following interfaces:
  *
  * <ul>
- *   <li>{@link WaitForCardRemovalDuringProcessingSpi}
+ *   <li>{@link WaitForCardRemovalBlockingDuringProcessingSpi}
  *   <li>{@link DontWaitForCardRemovalDuringProcessingSpi}
  * </ul>
  *
