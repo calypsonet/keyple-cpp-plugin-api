@@ -55,7 +55,7 @@ using namespace keyple::core::plugin::spi::reader;
  *
  * @since 2.0.0
  */
-class ObservableReaderSpi : public ReaderSpi {
+class ObservableReaderSpi : public virtual ReaderSpi {
 public:
     /**
      * Invoked when the card observation process is started

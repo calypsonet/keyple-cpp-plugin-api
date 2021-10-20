@@ -27,7 +27,7 @@ namespace reader {
  *
  * @since 2.0.0
  */
-class ConfigurableReaderSpi : public ReaderSpi {
+class ConfigurableReaderSpi : public virtual ReaderSpi {
 public:
     /**
      * 
@@ -70,7 +70,7 @@ public:
      * @return True if the current protocol corresponds to the one provided, false if not.
      * @since 2.0.0
      */
-    virtual bool isCurrentProtocol(const std::string& readerProtocol) = 0;
+    virtual bool isCurrentProtocol(const std::string& readerProtocol) const = 0;
 };
 
 }
