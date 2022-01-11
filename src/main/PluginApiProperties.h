@@ -18,28 +18,29 @@ namespace keyple {
 namespace core {
 namespace plugin {
 
-/**
- * API properties.
- *
- * @since 2.0.0
- */
-class PluginApiProperties final {
-public:
-    /**
-     * API version: {@value}
-     *
-     * @since 2.0.0
-     */
-    static const std::string VERSION;
+// /**
+//  * API properties.
+//  *
+//  * @since 2.0.0
+//  */
+// class PluginApiProperties final {
+// public:
+//     /**
+//      * API version: {@value}
+//      *
+//      * @since 2.0.0
+//      */
+//     static const std::string VERSION;
 
-private:
-    /**
-     * Private constructor
-     */
-    PluginApiProperties() {}
-};
+// private:
+//     /**
+//      * Private constructor
+//      */
+//     PluginApiProperties() {}
+// };
 
-const std::string PluginApiProperties::VERSION = "2.0";
+// const std::string PluginApiProperties::VERSION = "2.0";
+static const std::string PluginApiProperties_VERSION = "2.0";
 
 }
 }

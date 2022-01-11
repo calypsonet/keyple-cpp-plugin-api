@@ -33,7 +33,7 @@ namespace spi {
 class PoolPluginSpi {
 public:
     /**
-     * 
+     *
      */
     virtual ~PoolPluginSpi() = default;
 
@@ -56,7 +56,7 @@ public:
      * @throw PluginIOException If an error occurs
      * @since 2.0.0
      */
-    virtual const std::vector<std::string>& getReaderGroupReferences() const = 0;
+    virtual const std::vector<std::string> getReaderGroupReferences() const = 0;
 
     /**
      * Obtains an available reader resource and makes it exclusive to the caller until the
